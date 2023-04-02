@@ -1,3 +1,32 @@
+#user should be able to input hours and minutes of a cloack
+#program must calculate the angle(in degrees) between hour's arrow and minutes' arrow
+#output the angle in the console window
+
+#testcase1
+#input: hour = 12 ; minute = 15
+#output: 90 
+
 hours = int(input("Enter number of hours: "))
 minutes = int(input("Enter number of minutes: "))
+
+h = hours % 12
+
+# hour's arrow multiplied with 360 degrees (circular motion) divided by 12 (hrs in 1 full revolution)
+h = h * 360 / 12 + (minutes/60 * 30)
+
+# minutes' arrow multiplied with 360 degrees (circular motion) divided by 60 (mins in 1 full revolution)
+m = minutes * 360 / 60
+        
+# Degree covered by minute hand (Each minute = 6 degree)
+m = minutes * 6
+        
+# Compute for the angle
+angle = (m - h)
+        
+# For the possibility of h and m being near or tight angles (like acute angle)
+if angle > 180:
+    angle = 360 - angle
+        
+print(angle)
+
 
